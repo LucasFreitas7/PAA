@@ -1,7 +1,5 @@
 #include <iostream>
-
 using namespace std;
-
 struct TreeNode {
     int val;
     TreeNode* left;
@@ -12,39 +10,39 @@ struct TreeNode {
 
 class BST {
     private:
-    TreeNode* root;
-    TreeNode* insertHelper(TreeNode* root, int val) {
-        if (root == NULL)
+    TreeNode* node;
+    TreeNode* insertHelper(TreeNode* node, int val) {
+        if (node == NULL)
             return new TreeNode(val);
 
-        if (val < root->val)
-            root->left = insertHelper(root->left, val);
-        else if (val > root->val)
-            root->right = insertHelper(root->right, val);
+        if (val < node->val)
+            node->left = insertHelper(node->left, val);
+        else if (val > node->val)
+            node->right = insertHelper(node->right, val);
 
-        return root;
+        return node;
     }
 
-    TreeNode* searchHelper(TreeNode* root, int val) {
-        if (root == NULL || root->val == val)
-            return root;
+    TreeNode* searchHelper(TreeNode* node, int val) {
+        if (node == NULL || node->val == val)
+            return node;
 
-        if (val < root->val)
-            return searchHelper(root->left, val);
+        if (val < node->val)
+            return searchHelper(node->left, val);
         else
-            return searchHelper(root->right, val);
+            return searchHelper(node->right, val);
     }
 public:
     BST() {
-        root = NULL;
+        node = NULL;
     }
 
     void insert(int val) {
-        root = insertHelper(root, val);
+        node = insertHelper(node, val);
     }
 
     TreeNode* search(int val) {
-        return searchHelper(root, val);
+        return searchHelper(node, val);
     }
 
 
@@ -64,7 +62,7 @@ int main() {
     else
         cout << "Elemento na posição: " << node->val << endl;
 
-    node = bst.search(3);
+    node = bst.search(12);
     if (node == NULL)
         cout << "Elemento nao foi encontrado" << endl;
     else
