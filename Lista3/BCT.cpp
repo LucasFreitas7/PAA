@@ -77,3 +77,6 @@ int main() {
 // Teremos como pior caso se temos uma arvore desbalencada assim tanto para inserção quando para procura será 0(N)
 // Ja como o caso médio seria o caso onde ele sempre vai diminuir a entrada pela metade, deixando de olhar para um lado
 // arvore, tendo assim um caso médio de (log n)
+
+
+
